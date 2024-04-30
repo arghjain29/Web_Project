@@ -6,6 +6,19 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <style>
+    h1{
+        font-family:'Times New Roman', Times, serif;
+        font-style:italic;
+        font-weight: bold;
+        font-size: 65px;
+    }
+    .gg{
+        font-family:'Times New Roman', Times, serif;
+        font-style:italic;
+        font-size: 20px;
+        padding: 15px 35px;
+        margin-top: 20px;
+    }
     img {
         position: fixed;
         top: 0;
@@ -25,6 +38,7 @@
                 
                 <h1 class="text-light p-3">Sign in here....</h1>
                 <select required name="usertype" class="form-control mt-5">
+                    <option value="">Select user type</option>
                     <option value="Vendor">Vendor</option>
                     <option value="Customer">Customer</option>
                 </select>
@@ -32,7 +46,7 @@
                 <input required type="password" placeholder="Password" name="password" class="form-control mt-3">
                 
                 <div class="text-center mt-4">
-                    <button class="btn btn-success">Sign In</button>
+                    <button class="btn btn-success gg">Sign In</button>
                 </div>
                 
             </form>

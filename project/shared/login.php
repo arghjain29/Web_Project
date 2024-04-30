@@ -1,23 +1,36 @@
 <?php
 
+session_start();
+$_SESSION["login_status"] = false;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $uname = $_POST['username'];
     $upass = $_POST['password'];
     $utype = $_POST['usertype'];
 
+    //HASH password using md5 or SHA
+    $cipher_pass= md5($upass);
+    
     $conn = new mysqli('localhost', 'root', '', 'web_dev', 3306);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM user WHERE username='$uname' AND password='$upass' AND usertype='$utype'";
+    $sql = "SELECT * FROM user WHERE username='$uname' AND password='$cipher_pass' AND usertype='$utype'";
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows == 1) {
-        // User found
         echo "Login successful";
-        // Additional actions if needed
+        $_SESSION["login_status"] = true;
+        $_SESSION["usertype"] = $utype;
+
+        if ($utype == 'Vendor') {
+            header('location:../Vendor/home.php');
+        }
+        else if ($utype == 'Customer') {
+            header('location:../Customer/home.php');
+        }
     } else {
         // No matching user
         echo "<script> alert('User Not Found') </script>";
