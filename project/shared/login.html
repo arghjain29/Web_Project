@@ -6,19 +6,21 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <style>
-    h1{
-        font-family:'Times New Roman', Times, serif;
-        font-style:italic;
+    h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-style: italic;
         font-weight: bold;
         font-size: 65px;
     }
-    .gg{
-        font-family:'Times New Roman', Times, serif;
-        font-style:italic;
+
+    .gg {
+        font-family: 'Times New Roman', Times, serif;
+        font-style: italic;
         font-size: 20px;
         padding: 15px 35px;
         margin-top: 20px;
     }
+
     img {
         position: fixed;
         top: 0;
@@ -27,15 +29,26 @@
         min-height: 100%;
         z-index: -1;
     }
+
+    .si {
+        display: block
+    }
+    p{
+        color: white;
+        font-size: larger;
+    
+    }
 </style>
+
 <body>
     <div>
-     <img src="https://static.vecteezy.com/system/resources/previews/006/852/804/non_2x/abstract-blue-background-simple-design-for-your-website-free-vector.jpg" alt="">
+        <img src="https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714780800&semt=ais"
+            alt="">
 
-        <div class="d-flex justify-content-center align-items-center vh-100">
-            
+        <div class="d-flex justify-content-center align-items-center">
+
             <form action="login.php" method="post" class="w-70 p-5">
-                
+
                 <h1 class="text-light p-3">Sign in here....</h1>
                 <select required name="usertype" class="form-control mt-5">
                     <option value="">Select user type</option>
@@ -44,14 +57,17 @@
                 </select>
                 <input required type="text" placeholder="Username" name="username" class="form-control mt-3">
                 <input required type="password" placeholder="Password" name="password" class="form-control mt-3">
-                
+
                 <div class="text-center mt-4">
                     <button class="btn btn-success gg">Sign In</button>
                 </div>
-                
+
             </form>
         </div>
 
+        <div class="si text-center mt-4">
+            <p>Dont have a Account ? <a href="signup.html">Sign Up</a> here..</p>
+        </div>
     </div>
 
 

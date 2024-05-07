@@ -16,7 +16,8 @@ if ($upass1!=$upass2) {
 //HASH password using md5 or SHA
 $cipher_pass= md5($upass1);
 
-$conn=new mysqli('localhost','root','','web_dev',3306);
+// $conn=new mysqli('localhost','root','','web_dev',3306);
+include_once 'connection.php';
 
 $status= mysqli_query($conn, "insert into user(username,password,usertype) values('$uname','$cipher_pass','$utype')");
 
