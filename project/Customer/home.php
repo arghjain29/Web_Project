@@ -1,22 +1,67 @@
-<?php
-session_start();
+<html>
+  <head>
+    <style>
+      .pdt-card {
+        background-color: lightpink;
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+        width: 250px;
+        display: inline-block;
+      }
+      .name {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: cursive;
+      }
+      .price {
+        font-size: 26px;
+        font-weight: bold;
+      }
+      .price:before{
+        content: "Rs ";
+      }
+      .pdtimg {
+        width: 100%;
+        height: 250px;
+      }
+      .detail {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 2%;
+        background-color: lightcoral;
+        font-size: 18px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-// Check if login status is false or usertype is not 'Vendor'
-if (!isset($_SESSION["login_status"]) || $_SESSION["login_status"] === false || $_SESSION["usertype"] != 'Customer') {
-    echo "Unauthorized Access 401";
-    die;
-}
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Customer home welcome you</h1>
-</body>
+    </style>
+  </head>
 </html>
+
+<?php 
+
+    include 'authguard.php';
+    include_once '../shared/connection.php';
+    include 'menu.html';
+
+    $sql_result = mysqli_query($conn, "select * from product");
+
+
+    while ($dbrow= mysqli_fetch_assoc($sql_result))
+    {
+      
+      echo "
+      <div class='pdt-card'>
+           <div class='name'>$dbrow[name]</div>
+           <div class='price'>$dbrow[price]</div>
+           <img class='pdtimg' src='$dbrow[impath]'>
+           <div class='detail'>$dbrow[detail]</div>
+           <div class='action text-center mt-2'> 
+               <a href='addcart.php?pid=$dbrow[pid]'>
+                    <button class='btn btn-warning'>Add to Cart</button> 
+               </a> 
+           </div>
+      </div>";
+    }
+
+?>

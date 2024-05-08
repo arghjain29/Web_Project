@@ -16,6 +16,7 @@ $status = mysqli_query($conn, "insert into product (name,price,detail,impath,own
 
 if($status){
     echo "<script>alert('Product uploaded succesfully')</script>";
+    echo "<script>location.href='view.php'</script>";
 } else{
     echo mysqli_error($conn);
 }

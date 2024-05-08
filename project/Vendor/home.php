@@ -1,5 +1,6 @@
 <?php
 include 'authguard.php';
+include 'menu.html';
 ?>
 
 
@@ -22,10 +23,13 @@ include 'authguard.php';
         font-size: 25px;
         margin-top: 20px;
     }
+    .mt{
+        margin-top: 100px;
+    }
 
 </style>
 <body>
-    <div class=" d-flex justify-content-center align-items-center vh-100">
+    <div class=" d-flex justify-content-center align-items-center mt">
         <form action="upload.php" enctype="multipart/form-data" method="post" class="w-50 bg-success p-4">
             <h1>UPLOAD PRODUCT HERE</h1>
             <input required type="text" placeholder="Product name" name="name" class="form-control mt-4">
@@ -36,6 +40,7 @@ include 'authguard.php';
             <div class="text-center">
                 <button class="btn btn-secondary mt-4 justify-content-center"><text>Upload</text></button>
             </div>  
+            
         </form>
     </div>
 </body>
